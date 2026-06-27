@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\InstitucionController;
+use App\Http\Controllers\EquipoController;
+use App\Http\Controllers\ProtocoloController;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -35,9 +37,9 @@ Route::get('/dashboard', function () {
     // ------------------------------------------------------------------
     // CONTROL DE CALIDAD
     // ------------------------------------------------------------------
-    // Route::prefix('calidad')->name('calidad.')->group(function () {
-    //     require __DIR__.'/modules/calidad.php';
-    // });
+    Route::prefix('calidad')->name('calidad.')->group(function () {
+       require __DIR__.'/modules/calidad.php';
+    });
  
     // ------------------------------------------------------------------
     // DESPACHO
@@ -70,7 +72,12 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->middle
     // Instituciones
     Route::resource('instituciones', InstitucionController::class);
     Route::post('usuarios/{usuario}/reset-password', [UsuarioController::class, 'resetPassword'])->name('usuarios.reset-password');
- 
+    
+    // Equipos
+    Route::resource('equipos', EquipoController::class);
+    
+    // Protocolos
+    Route::resource('protocolos', ProtocoloController::class);
 });
 
 Route::middleware('auth')->group(function () {

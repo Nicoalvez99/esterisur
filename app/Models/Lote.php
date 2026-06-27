@@ -100,6 +100,26 @@ class Lote extends Model
         return $this->hasMany(HistorialLote::class);
     }
 
+    /** Esterilizacion del lote (via pivot) */
+    public function esterilizaciones()
+    {
+        return $this->belongsToMany(Esterilizacion::class, 'esterilizacion_lotes');
+    }
+
+    /** Ultimo ciclo de esterilizacion */
+    public function esterilizacion(): HasOne
+    {
+        return $this->hasOne(\App\Models\Esterilizacion::class, 'id', 'id')
+                    ->whereHas('lotes', fn($q) => $q->where('lote_id', $this->id))
+                    ->latestOfMany();
+    }
+
+    /** Registro de liberacion */
+    public function liberacion(): HasOne
+    {
+        return $this->hasOne(Liberacion::class);
+    }
+
     // -----------------------------------------------------------------------
     // Helpers de estado
     // -----------------------------------------------------------------------
