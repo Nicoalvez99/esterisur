@@ -86,7 +86,7 @@ class User extends Authenticatable
             'acondicionamiento' => 'acondicionamiento.index',
             'esterilizacion'    => 'esterilizacion.index',
             'calidad'           => 'calidad.index',
-            'despacho'          => 'despacho',
+            'despacho'          => 'despacho.index',
             'facturacion'       => 'facturacion',
             'auditor'           => 'auditor',
             default             => 'recepcion',

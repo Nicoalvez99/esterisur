@@ -21,7 +21,7 @@ return new class extends Migration
                 ->cascadeOnDelete();
 
             $table->foreignId('institucion_id')
-                ->constrained('instituciones')
+                ->constrained('institucions')
                 ->restrictOnDelete();
 
             // Chofer y transporte

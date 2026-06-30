@@ -87,6 +87,10 @@ class Lote extends Model
     {
         return $this->hasMany(LoteItem::class);
     }
+    public function remito(): BelongsTo
+    {
+        return $this->belongsTo(Remito::class, 'remito_id');
+    }
 
     /** Registro de acondicionamiento */
     public function acondicionamiento(): HasOne

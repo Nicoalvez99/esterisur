@@ -7,7 +7,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\InstitucionController;
 use App\Http\Controllers\EquipoController;
 use App\Http\Controllers\ProtocoloController;
-
+use App\Http\Controllers\FicharController;
 Route::get('/', function () {
     return redirect()->route('login');
 });
@@ -16,7 +16,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-
+Route::get('/fichar', [FicharController::class, 'index']);
+Route::post('/fichar', [FicharController::class, 'store'])->name('fichar.store');
 
     Route::prefix('recepcion')->name('recepcion.')->middleware(['auth', 'recepcion'])->group(function () {
         require __DIR__.'/modules/recepcion.php';
@@ -44,9 +45,9 @@ Route::get('/dashboard', function () {
     // ------------------------------------------------------------------
     // DESPACHO
     // ------------------------------------------------------------------
-    // Route::prefix('despacho')->name('despacho.')->group(function () {
-    //     require __DIR__.'/modules/despacho.php';
-    // });
+    Route::prefix('despacho')->name('despacho.')->group(function () {
+        require __DIR__.'/modules/despacho.php';
+    });
  
     // ------------------------------------------------------------------
     // FACTURACIÓN
