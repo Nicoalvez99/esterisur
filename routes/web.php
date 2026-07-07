@@ -52,9 +52,9 @@ Route::post('/fichar', [FicharController::class, 'store'])->name('fichar.store')
     // ------------------------------------------------------------------
     // FACTURACIÓN
     // ------------------------------------------------------------------
-    // Route::prefix('facturacion')->name('facturacion.')->group(function () {
-    //     require __DIR__.'/modules/facturacion.php';
-    // });
+     Route::prefix('facturacion')->name('facturacion.')->group(function () {
+         require __DIR__.'/modules/facturacion.php';
+     });
  
     // ------------------------------------------------------------------
     // AUDITOR (solo lectura)

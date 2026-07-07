@@ -25,6 +25,9 @@ class Remito extends Model
         'fecha_entrega_confirmada',
         'operario_id',
         'observaciones',
+        'facturado', 
+        'fecha_facturacion', 
+        'facturado_por'
     ];
 
     protected $casts = [
