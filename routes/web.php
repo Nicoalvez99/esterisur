@@ -55,18 +55,27 @@ Route::post('/fichar', [FicharController::class, 'store'])->name('fichar.store')
      Route::prefix('facturacion')->name('facturacion.')->group(function () {
          require __DIR__.'/modules/facturacion.php';
      });
+<<<<<<< HEAD
 
 
      Route::prefix('reportes')->name('reportes.')->group(function () {
         require __DIR__.'/modules/reportes.php';
      });
+=======
+>>>>>>> 094ab2b00cae04dbe1123501368046a12e0c7e81
  
     // ------------------------------------------------------------------
     // AUDITOR (solo lectura)
     // ------------------------------------------------------------------
+<<<<<<< HEAD
     Route::prefix('auditor')->name('auditor.')->group(function () {
         require __DIR__.'/modules/auditor.php';
      });
+=======
+    // Route::prefix('auditor')->name('auditor.')->group(function () {
+    //     require __DIR__.'/modules/auditor.php';
+    // });
+>>>>>>> 094ab2b00cae04dbe1123501368046a12e0c7e81
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
  
     // Dashboard

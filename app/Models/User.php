@@ -88,7 +88,11 @@ class User extends Authenticatable
             'calidad'           => 'calidad.index',
             'despacho'          => 'despacho.index',
             'facturacion'       => 'facturacion.index',
+<<<<<<< HEAD
             'auditor'           => 'auditor.index',
+=======
+            'auditor'           => 'auditor',
+>>>>>>> 094ab2b00cae04dbe1123501368046a12e0c7e81
             default             => 'recepcion',
         };
     }
